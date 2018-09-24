@@ -24,5 +24,17 @@ namespace PckgInstallSequenceResolverTest
 			string result = resolver.GetInstallSequence(null);
 			Assert.AreEqual(ErrorMessages.NULL_INPUT_MESSAGE, result);
 		}
+
+		[TestMethod]
+		public void TestInputContainsSinglePackageWithNoDependency()
+		{
+			//if the input contains only 1 package which has no other dependency, 
+			//the result contains only the package name. 
+
+			InstallSequenceResolver resolver = new InstallSequenceResolver();
+			string[]input = new string[]{"KittenService:"};
+			string result = resolver.GetInstallSequence(input);
+			Assert.AreEqual("KittenService", result);
+		}
 	}
 }
