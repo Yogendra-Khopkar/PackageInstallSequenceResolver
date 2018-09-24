@@ -1,0 +1,17 @@
+C:\YK\prj\PckgInstallSequenceResolver\PckgInstallSequenceResolverTest\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\YK\prj\PckgInstallSequenceResolver\PckgInstallSequenceResolverTest\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\YK\prj\PckgInstallSequenceResolver\PckgInstallSequenceResolverTest\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\YK\prj\PckgInstallSequenceResolver\PckgInstallSequenceResolverTest\bin\Debug\netcoreapp2.1\PckgInstallSequenceResolverTest.deps.json
+C:\YK\prj\PckgInstallSequenceResolver\PckgInstallSequenceResolverTest\bin\Debug\netcoreapp2.1\PckgInstallSequenceResolverTest.runtimeconfig.json
+C:\YK\prj\PckgInstallSequenceResolver\PckgInstallSequenceResolverTest\bin\Debug\netcoreapp2.1\PckgInstallSequenceResolverTest.runtimeconfig.dev.json
+C:\YK\prj\PckgInstallSequenceResolver\PckgInstallSequenceResolverTest\bin\Debug\netcoreapp2.1\PckgInstallSequenceResolverTest.dll
+C:\YK\prj\PckgInstallSequenceResolver\PckgInstallSequenceResolverTest\bin\Debug\netcoreapp2.1\PckgInstallSequenceResolverTest.pdb
+C:\YK\prj\PckgInstallSequenceResolver\PckgInstallSequenceResolverTest\obj\Debug\netcoreapp2.1\PckgInstallSequenceResolverTest.csproj.CoreCompileInputs.cache
+C:\YK\prj\PckgInstallSequenceResolver\PckgInstallSequenceResolverTest\obj\Debug\netcoreapp2.1\PckgInstallSequenceResolverTest.AssemblyInfoInputs.cache
+C:\YK\prj\PckgInstallSequenceResolver\PckgInstallSequenceResolverTest\obj\Debug\netcoreapp2.1\PckgInstallSequenceResolverTest.AssemblyInfo.cs
+C:\YK\prj\PckgInstallSequenceResolver\PckgInstallSequenceResolverTest\obj\Debug\netcoreapp2.1\PckgInstallSequenceResolverTest.dll
+C:\YK\prj\PckgInstallSequenceResolver\PckgInstallSequenceResolverTest\obj\Debug\netcoreapp2.1\PckgInstallSequenceResolverTest.pdb
+C:\YK\prj\PckgInstallSequenceResolver\PckgInstallSequenceResolverTest\bin\Debug\netcoreapp2.1\PckgInstallSequenceResolver.dll
+C:\YK\prj\PckgInstallSequenceResolver\PckgInstallSequenceResolverTest\bin\Debug\netcoreapp2.1\PckgInstallSequenceResolver.pdb
+C:\YK\prj\PckgInstallSequenceResolver\PckgInstallSequenceResolverTest\obj\Debug\netcoreapp2.1\PckgInstallSequenceResolverTest.csprojAssemblyReference.cache
+C:\YK\prj\PckgInstallSequenceResolver\PckgInstallSequenceResolverTest\obj\Debug\netcoreapp2.1\PckgInstallSequenceResolverTest.csproj.CopyComplete

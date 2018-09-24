@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PckgInstallSequenceResolver", "PckgInstallSequenceResolver\PckgInstallSequenceResolver.csproj", "{C811E80C-7931-45A2-9DEC-7BF1BBCE54CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PckgInstallSequenceResolverTest", "..\PckgInstallSequenceResolverTest\PckgInstallSequenceResolverTest.csproj", "{558D18D2-1660-4758-AD0E-28BCA48B9F5A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PckgInstallSequenceResolverTest", "PckgInstallSequenceResolverTest\PckgInstallSequenceResolverTest.csproj", "{030A008E-3B80-4B44-B038-16D7BB6D44BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{C811E80C-7931-45A2-9DEC-7BF1BBCE54CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C811E80C-7931-45A2-9DEC-7BF1BBCE54CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C811E80C-7931-45A2-9DEC-7BF1BBCE54CB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{558D18D2-1660-4758-AD0E-28BCA48B9F5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{558D18D2-1660-4758-AD0E-28BCA48B9F5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{558D18D2-1660-4758-AD0E-28BCA48B9F5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{558D18D2-1660-4758-AD0E-28BCA48B9F5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{030A008E-3B80-4B44-B038-16D7BB6D44BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{030A008E-3B80-4B44-B038-16D7BB6D44BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{030A008E-3B80-4B44-B038-16D7BB6D44BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{030A008E-3B80-4B44-B038-16D7BB6D44BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
