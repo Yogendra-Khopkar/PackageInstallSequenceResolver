@@ -23,7 +23,7 @@ namespace PckgInstallSequenceResolver
 			IInputParser parser = new ArrayInputParser();
 			IEnumerable<string> sequencedPackages = parser.ParseInput(input);
 
-			result = string.Join(",", sequencedPackages);
+			result = string.Join(", ", sequencedPackages);
 
 			return result;
 		}
