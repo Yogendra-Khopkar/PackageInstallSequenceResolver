@@ -1,0 +1,6 @@
+C:\YK\prj\PckgInstallSequenceResolver\PckgInstallSequenceResolver\bin\Debug\PckgInstallSequenceResolver.dll
+C:\YK\prj\PckgInstallSequenceResolver\PckgInstallSequenceResolver\bin\Debug\PckgInstallSequenceResolver.pdb
+C:\YK\prj\PckgInstallSequenceResolver\PckgInstallSequenceResolver\obj\Debug\PckgInstallSequenceResolver.csprojAssemblyReference.cache
+C:\YK\prj\PckgInstallSequenceResolver\PckgInstallSequenceResolver\obj\Debug\PckgInstallSequenceResolver.csproj.CoreCompileInputs.cache
+C:\YK\prj\PckgInstallSequenceResolver\PckgInstallSequenceResolver\obj\Debug\PckgInstallSequenceResolver.dll
+C:\YK\prj\PckgInstallSequenceResolver\PckgInstallSequenceResolver\obj\Debug\PckgInstallSequenceResolver.pdb
