@@ -19,7 +19,15 @@ namespace PckgInstallSequenceResolver
 			{
 				return result;
 			}
-			return null;
+
+			IInputParser parser = new ArrayInputParser();
+			IEnumerable<string> sequencedPackages = parser.ParseInput(input);
+
+			result = string.Join(",", sequencedPackages);
+
+			return result;
 		}
+
+		
 	}
 }
