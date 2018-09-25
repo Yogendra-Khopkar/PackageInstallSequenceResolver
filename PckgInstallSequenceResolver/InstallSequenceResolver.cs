@@ -11,23 +11,30 @@ namespace PckgInstallSequenceResolver
 		public string GetInstallSequence(string[] input)
 		{
 			string result = String.Empty;
-			if (input == null)
+			try
 			{
-				return ErrorMessages.NULL_INPUT_MESSAGE;
+				if (input == null)
+				{
+					return ErrorMessages.NULL_INPUT_MESSAGE;
+				}
+				if (!input.Any())
+				{
+					return result;
+				}
+
+				IInputParser parser = new ArrayInputParser();
+				IEnumerable<string> sequencedPackages = parser.ParseInput(input);
+
+				result = string.Join(", ", sequencedPackages);
+
 			}
-			if (!input.Any())
+			catch (InputParserException ipe)
 			{
-				return result;
+				//log the exception 
+				result = ipe.Message;
 			}
-
-			IInputParser parser = new ArrayInputParser();
-			IEnumerable<string> sequencedPackages = parser.ParseInput(input);
-
-			result = string.Join(", ", sequencedPackages);
 
 			return result;
 		}
-
-		
 	}
 }

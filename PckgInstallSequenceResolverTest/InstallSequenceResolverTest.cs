@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PckgInstallSequenceResolver;
 
@@ -82,5 +84,7 @@ namespace PckgInstallSequenceResolverTest
 			string result = resolver.GetInstallSequence(input);
 			Assert.AreEqual("KittenService, Ice, Cyberportal, Leetmeme, CamelCaser, Fraudstream",result);
 		}
+
+		
 	}
 }

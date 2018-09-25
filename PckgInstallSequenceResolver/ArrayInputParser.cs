@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace PckgInstallSequenceResolver
 {
-	public class ArrayInputParser : IInputParser
+	class ArrayInputParser : IInputParser
 	{
 		List<string> sequencedPackageNames1 = new List<string>();
 		IDictionary<string, string> dependencies1 = new Dictionary<string, string>();
@@ -12,21 +12,24 @@ namespace PckgInstallSequenceResolver
 		public IEnumerable<string> ParseInput(string[] input)
 		{
 			IDictionary<string, string> dependencies = GetPackageAndDependency(input);
-			IEnumerable<string> sequencedPackageNames = new List<string>();
+			List<string> sequencedPackageNames = new List<string>();
 
 
 			foreach (var pkgDependency in dependencies)
 			{
+				string packageName = pkgDependency.Key;
+
+				if (string.IsNullOrWhiteSpace(packageName))
+				{
+					throw InputParserException.InvalidInputException(ErrorMessages.PACKAGENAME_IS_EMPTY);
+				}
 				if (!sequencedPackageNames.Contains(pkgDependency.Key))
 				{
-					string packageName = pkgDependency.Key;
-					string dependency = pkgDependency.Value;
-
-					IEnumerable<string> f = ResolveDependenciesForPackage(pkgDependency, dependencies);
-					sequencedPackageNames = sequencedPackageNames.Union(f);
+					IEnumerable<string> resolvedDependencies = ResolveDependenciesForPackage(pkgDependency, dependencies).ToList();
+					sequencedPackageNames.AddRange(resolvedDependencies);
 				}
 			}
-			return sequencedPackageNames;
+			return sequencedPackageNames.Distinct();
 
 		}
 
@@ -63,8 +66,6 @@ namespace PckgInstallSequenceResolver
 
 		}
 
-		
-
 		private IDictionary<string, string> GetPackageAndDependency(string[] input)
 		{
 			IDictionary<string, string> dependencies = new Dictionary<string, string>();
@@ -72,13 +73,6 @@ namespace PckgInstallSequenceResolver
 			foreach (var pckgDependency in input)
 			{
 				var dependencyArray = pckgDependency.Split(':');
-
-				//packageNames.Add(dependencyArray[0].Trim());
-				//if (dependencyArray[1] != string.Empty)
-				//{
-				//	packageNames.Add(dependencyArray[1].Trim());
-				//}
-
 				dependencies.Add(dependencyArray[0].Trim(), dependencyArray[1].Trim());
 			}
 
