@@ -47,12 +47,13 @@ namespace PckgInstallSequenceResolver
 			else
 			{
 				Stack<string> stackOfPackageAndDependency = new Stack<string>();
-				stackOfPackageAndDependency.Push(packageName);
+				AddPackageToStack(stackOfPackageAndDependency, packageName);
 
 				while (dependency != string.Empty)
 				{
 					packageName = dependency;
-					stackOfPackageAndDependency.Push(packageName);
+					//stackOfPackageAndDependency.Push(packageName);
+					AddPackageToStack(stackOfPackageAndDependency, packageName);
 					dependency = packageAndDependencies.First(a => a.Key == packageName).Value;
 				}
 
@@ -64,6 +65,18 @@ namespace PckgInstallSequenceResolver
 
 			return dependencies;
 
+		}
+
+		private void AddPackageToStack(Stack<string> stackOfPackageAndDependency, string packageName)
+		{
+			if (stackOfPackageAndDependency.Contains(packageName))
+			{
+				throw InputParserException.InvalidInputException(ErrorMessages.INPUT_CONTAINS_CYCLE);
+			}
+			else
+			{
+					stackOfPackageAndDependency.Push(packageName);
+			}
 		}
 
 		private IDictionary<string, string> GetPackageAndDependency(string[] input)
