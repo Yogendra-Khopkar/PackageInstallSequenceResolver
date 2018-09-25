@@ -85,6 +85,24 @@ namespace PckgInstallSequenceResolverTest
 			Assert.AreEqual("KittenService, Ice, Cyberportal, Leetmeme, CamelCaser, Fraudstream",result);
 		}
 
+		[TestMethod]
+		public void TestInputWithCycles()
+		{
+			string[] input = new string[]
+			{
+				"KittenService: ",
+				"Leetmeme: Cyberportal",
+				"Cyberportal: Ice",
+				"CamelCaser: KittenService",
+				"Fraudstream: ",
+				"Ice: Leetmeme"
+			};
+
+			InstallSequenceResolver resolver = new InstallSequenceResolver();
+			string result = resolver.GetInstallSequence(input);
+			Assert.AreEqual(ErrorMessages.INPUT_CONTAINS_CYCLE, result);
+		}
+
 		
 	}
 }
