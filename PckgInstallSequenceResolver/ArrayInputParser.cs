@@ -1,12 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace PckgInstallSequenceResolver
 {
 	class ArrayInputParser : IInputParser
 	{
-		List<string> sequencedPackageNames1 = new List<string>();
-		IDictionary<string, string> dependencies1 = new Dictionary<string, string>();
 
 
 		public IEnumerable<string> ParseInput(string[] input)
@@ -23,7 +22,7 @@ namespace PckgInstallSequenceResolver
 				{
 					throw InputParserException.InvalidInputException(ErrorMessages.PACKAGENAME_IS_EMPTY);
 				}
-				if (!sequencedPackageNames.Contains(pkgDependency.Key))
+				if (!sequencedPackageNames.Contains(pkgDependency.Key, StringComparer.InvariantCultureIgnoreCase))
 				{
 					IEnumerable<string> resolvedDependencies = ResolveDependenciesForPackage(pkgDependency, dependencies).ToList();
 					sequencedPackageNames.AddRange(resolvedDependencies);
@@ -52,9 +51,10 @@ namespace PckgInstallSequenceResolver
 				while (dependency != string.Empty)
 				{
 					packageName = dependency;
-					//stackOfPackageAndDependency.Push(packageName);
 					AddPackageToStack(stackOfPackageAndDependency, packageName);
-					dependency = packageAndDependencies.First(a => a.Key == packageName).Value;
+					//dependency = packageAndDependencies.First(a => a.Key == packageName).Value;
+					dependency = packageAndDependencies.First(a => string.Equals(a.Key,packageName,StringComparison.InvariantCultureIgnoreCase)).Value;
+
 				}
 
 				foreach (var pkg in stackOfPackageAndDependency)
@@ -75,7 +75,7 @@ namespace PckgInstallSequenceResolver
 			}
 			else
 			{
-					stackOfPackageAndDependency.Push(packageName);
+				stackOfPackageAndDependency.Push(packageName);
 			}
 		}
 
@@ -83,13 +83,20 @@ namespace PckgInstallSequenceResolver
 		{
 			IDictionary<string, string> dependencies = new Dictionary<string, string>();
 
-			foreach (var pckgDependency in input)
+			foreach (string pckgDependency in input)
 			{
-				var dependencyArray = pckgDependency.Split(':');
-				dependencies.Add(dependencyArray[0].Trim(), dependencyArray[1].Trim());
+				if (!string.IsNullOrWhiteSpace(pckgDependency))
+				{
+					var dependencyArray = pckgDependency.Split(':');
+					dependencies.Add(dependencyArray[0].Trim(), dependencyArray[1].Trim());
+				}
 			}
 
 			return dependencies;
 		}
+
+		//case insensitive
+		// missing :
+		//move input validation logic to input parser
 	}
 }

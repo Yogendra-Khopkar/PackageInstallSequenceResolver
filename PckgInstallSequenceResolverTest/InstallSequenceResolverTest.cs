@@ -104,5 +104,62 @@ namespace PckgInstallSequenceResolverTest
 		}
 
 		
+
+		[TestMethod]
+		public void TestInputContainsOneElementAllSpaces()
+		{
+			string[] input = new string[]{"                    "};
+
+			InstallSequenceResolver resolver = new InstallSequenceResolver();
+			string result = resolver.GetInstallSequence(input);
+			Assert.AreEqual(string.Empty, result);
+		}
+
+		[TestMethod]
+		public void TestValidInputForCaseInsensitivity()
+		{
+			string[] input = new string[]
+			{
+				"KittenService: ",
+				"Leetmeme: Cyberportal",
+				"CYBERPORTAL: ICE",
+				"CamelCaser: KittenService",
+				"Fraudstream: ",
+				"Ice: "
+			};
+
+			InstallSequenceResolver resolver = new InstallSequenceResolver();
+			string result = resolver.GetInstallSequence(input);
+			Assert.AreEqual("KittenService, ICE, Cyberportal, Leetmeme, CamelCaser, Fraudstream", result);
+		}
+
+		[TestMethod]
+		public void Foo1()
+		{
+			string[] input = new string[] { "AB" };
+
+			InstallSequenceResolver resolver = new InstallSequenceResolver();
+			string result = resolver.GetInstallSequence(input);
+			Assert.AreEqual(string.Empty, result);
+		}
+
+		[TestMethod]
+		public void Foo()
+		{
+			string[] input = new string[]
+			{
+				"A: B",
+				"G: A",
+				"B: C",
+				"C: ",
+				"D: E",
+				"E: "
+
+			};
+
+			InstallSequenceResolver resolver = new InstallSequenceResolver();
+			string result = resolver.GetInstallSequence(input);
+			Assert.AreEqual("C, B, A, E, D, G", result);
+		}
 	}
 }
