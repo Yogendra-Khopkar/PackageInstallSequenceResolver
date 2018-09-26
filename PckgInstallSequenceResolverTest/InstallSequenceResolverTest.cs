@@ -149,22 +149,22 @@ namespace PckgInstallSequenceResolverTest
 		}
 
 		[TestMethod]
-		public void Foo1()
+		public void TestInputContainsNullElement()
 		{
-			string[] input = new string[] { "AB" };
+			string[] input = new string[] { null };
 
 			InstallSequenceResolver resolver = new InstallSequenceResolver();
 			string result = resolver.GetInstallSequence(input);
-			Assert.AreEqual(string.Empty, result);
+			Assert.AreEqual(ErrorMessages.INVALID_INPUT_MESSAGE, result);
 		}
 
 		[TestMethod]
-		public void Foo()
+		public void TestInputContainsEmptyStringAsPackageName()
 		{
 			string[] input = new string[]
 			{
 				"A: B",
-				"G: A",
+				": A",
 				"B: C",
 				"C: ",
 				"D: E",
@@ -174,7 +174,9 @@ namespace PckgInstallSequenceResolverTest
 
 			InstallSequenceResolver resolver = new InstallSequenceResolver();
 			string result = resolver.GetInstallSequence(input);
-			Assert.AreEqual("C, B, A, G, E, D", result);
+			Assert.AreEqual(ErrorMessages.PACKAGENAME_IS_EMPTY, result);
 		}
+
+		
 	}
 }

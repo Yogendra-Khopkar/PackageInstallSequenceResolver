@@ -6,8 +6,6 @@ namespace PckgInstallSequenceResolver
 {
 	class ArrayInputParser : IInputParser
 	{
-
-
 		public IEnumerable<string> ParseInput(string[] input)
 		{
 			ValidateInput(input);
@@ -39,6 +37,12 @@ namespace PckgInstallSequenceResolver
 			if (input == null)
 			{
 				throw InputParserException.InvalidInputException(ErrorMessages.NULL_INPUT_MESSAGE);
+			}
+
+			//Test that input contains null element. 
+			if (input.Any(x=>x is null))
+			{
+				throw InputParserException.InvalidInputException(ErrorMessages.INVALID_INPUT_MESSAGE);
 			}
 
 			//Test if input contains ":" in every element
@@ -112,8 +116,6 @@ namespace PckgInstallSequenceResolver
 			return dependencies;
 		}
 
-		//case insensitive
-		// missing :
-		//move input validation logic to input parser
+		
 	}
 }
