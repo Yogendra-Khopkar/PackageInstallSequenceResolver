@@ -73,9 +73,7 @@ namespace PckgInstallSequenceResolver
 				{
 					packageName = dependency;
 					AddPackageToStack(stackOfPackageAndDependency, packageName);
-					//dependency = packageAndDependencies.First(a => a.Key == packageName).Value;
 					dependency = packageAndDependencies.First(a => string.Equals(a.Key,packageName,StringComparison.InvariantCultureIgnoreCase)).Value;
-
 				}
 
 				foreach (var pkg in stackOfPackageAndDependency)
