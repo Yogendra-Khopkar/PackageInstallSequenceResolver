@@ -9,7 +9,7 @@ namespace PckgInstallSequenceResolver
 		public IEnumerable<string> ParseInput(string[] input)
 		{
 			ValidateInput(input);
-			IDictionary<string, string> dependencies = GetPackageAndDependency(input);
+			IDictionary<string, string> dependencies = ParseInputIntoPackageAndDependency(input);
 			List<string> sequencedPackageNames = new List<string>();
 
 
@@ -100,7 +100,7 @@ namespace PckgInstallSequenceResolver
 			}
 		}
 
-		private IDictionary<string, string> GetPackageAndDependency(string[] input)
+		private IDictionary<string, string> ParseInputIntoPackageAndDependency(string[] input)
 		{
 			IDictionary<string, string> dependencies = new Dictionary<string, string>();
 
