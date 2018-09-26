@@ -115,7 +115,6 @@ namespace PckgInstallSequenceResolver
 
 			return dependencies;
 		}
-
 		
 	}
 }
