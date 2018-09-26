@@ -112,7 +112,7 @@ namespace PckgInstallSequenceResolverTest
 
 			InstallSequenceResolver resolver = new InstallSequenceResolver();
 			string result = resolver.GetInstallSequence(input);
-			Assert.AreEqual(string.Empty, result);
+			Assert.AreEqual(ErrorMessages.INVALID_INPUT_MESSAGE, result);
 		}
 
 		[TestMethod]
@@ -131,6 +131,21 @@ namespace PckgInstallSequenceResolverTest
 			InstallSequenceResolver resolver = new InstallSequenceResolver();
 			string result = resolver.GetInstallSequence(input);
 			Assert.AreEqual("KittenService, ICE, Cyberportal, Leetmeme, CamelCaser, Fraudstream", result);
+		}
+
+		[TestMethod]
+		public void TestInputWithInvalidFormat()
+		{
+			//The input contains elements without colon (:)
+			string[] input = new string[]
+			{
+				"A: B",
+				"XYZ",
+				"P: Q"
+			};
+			InstallSequenceResolver resolver = new InstallSequenceResolver();
+			string result = resolver.GetInstallSequence(input);
+			Assert.AreEqual(ErrorMessages.INVALID_INPUT_MESSAGE, result);
 		}
 
 		[TestMethod]
@@ -159,7 +174,7 @@ namespace PckgInstallSequenceResolverTest
 
 			InstallSequenceResolver resolver = new InstallSequenceResolver();
 			string result = resolver.GetInstallSequence(input);
-			Assert.AreEqual("C, B, A, E, D, G", result);
+			Assert.AreEqual("C, B, A, G, E, D", result);
 		}
 	}
 }

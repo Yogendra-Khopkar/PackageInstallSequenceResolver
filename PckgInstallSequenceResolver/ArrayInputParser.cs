@@ -10,6 +10,7 @@ namespace PckgInstallSequenceResolver
 
 		public IEnumerable<string> ParseInput(string[] input)
 		{
+			ValidateInput(input);
 			IDictionary<string, string> dependencies = GetPackageAndDependency(input);
 			List<string> sequencedPackageNames = new List<string>();
 
@@ -29,6 +30,22 @@ namespace PckgInstallSequenceResolver
 				}
 			}
 			return sequencedPackageNames.Distinct();
+
+		}
+
+		private void ValidateInput(string[] input)
+		{
+			//Test if input is null
+			if (input == null)
+			{
+				throw InputParserException.InvalidInputException(ErrorMessages.NULL_INPUT_MESSAGE);
+			}
+
+			//Test if input contains ":" in every element
+			if (input.Any(x => !x.Contains(":")))
+			{
+				throw InputParserException.InvalidInputException(ErrorMessages.INVALID_INPUT_MESSAGE);
+			}
 
 		}
 

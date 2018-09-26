@@ -13,15 +13,6 @@ namespace PckgInstallSequenceResolver
 			string result = String.Empty;
 			try
 			{
-				if (input == null)
-				{
-					return ErrorMessages.NULL_INPUT_MESSAGE;
-				}
-				if (!input.Any())
-				{
-					return result;
-				}
-
 				IInputParser parser = new ArrayInputParser();
 				IEnumerable<string> sequencedPackages = parser.ParseInput(input);
 
